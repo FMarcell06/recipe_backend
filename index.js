@@ -13,7 +13,6 @@ app.use(express.json({limit:"5mb"}))
 app.post('/api/uploadImage', async (req,resp)=>{
     try {
         const {image} = req.body
-        console.log(image);
         
         const uploadResponse = await cloudinary.uploader.upload(image,{folder:"recipes"})
         resp.json({
